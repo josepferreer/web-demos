@@ -1,0 +1,1242 @@
+/* ==========================================================================
+   Bellavista Residencial 2.0 — Editorial Architectural Stylesheet
+   Zero generic SaaS cards: asymmetric splits, typographic folios & spreads.
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-cal);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink-mar);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+.section {
+  padding-block: clamp(64px, 8vw, 112px);
+  scroll-margin-top: var(--header-h);
+}
+
+.section--stone {
+  background-color: var(--bg-piedra);
+}
+
+.section--sea {
+  background-color: var(--ink-mar);
+  color: var(--bg-cal);
+}
+
+/* Display Typography */
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--ink-mar);
+}
+
+.section--sea .section-heading {
+  color: var(--bg-cal);
+}
+
+.section-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 48px;
+}
+
+.section--sea .section-intro {
+  border-bottom-color: rgba(250, 248, 244, 0.18);
+}
+
+.section-desc {
+  font-size: 1.02rem;
+  color: var(--ink-muted);
+  max-width: 52ch;
+}
+
+.section--sea .section-desc {
+  color: rgba(250, 248, 244, 0.8);
+}
+
+/* Buttons (Architectural flat style, zero pill clutter) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  min-height: 46px;
+  transition: background-color 180ms var(--ease), color 180ms var(--ease), border-color 180ms var(--ease);
+}
+
+.btn--terracota {
+  background-color: var(--accent-terracota);
+  color: #FFFFFF;
+}
+
+.btn--terracota:hover {
+  background-color: var(--accent-terracota-hover);
+}
+
+.btn--sea {
+  background-color: var(--ink-mar);
+  color: var(--bg-cal);
+}
+
+.btn--sea:hover {
+  background-color: var(--ink-mar-hover);
+}
+
+.btn--line {
+  border: 1px solid var(--line-strong);
+  color: var(--ink-mar);
+  background-color: transparent;
+}
+
+.btn--line:hover {
+  border-color: var(--ink-mar);
+  background-color: rgba(18, 52, 77, 0.05);
+}
+
+.btn--line-light {
+  border: 1px solid rgba(250, 248, 244, 0.45);
+  color: var(--bg-cal);
+}
+
+.btn--line-light:hover {
+  background-color: rgba(250, 248, 244, 0.12);
+  border-color: var(--bg-cal);
+}
+
+/* ==========================================================================
+   Header (Crisp Architectural Masthead)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background-color: rgba(250, 248, 244, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--ink-mar);
+  letter-spacing: 0.02em;
+}
+
+.brand-place {
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.12em;
+  margin-top: 3px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding-block: 6px;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--accent-terracota);
+  transition: width 200ms var(--ease);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+}
+
+.lang-btn {
+  padding: 6px 9px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  min-height: 36px;
+}
+
+.lang-btn.is-active {
+  background-color: var(--ink-mar);
+  color: var(--bg-cal);
+}
+
+.mobile-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-mar);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: var(--bg-cal);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: transform 280ms var(--ease);
+}
+
+.mobile-drawer.is-open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-block: 32px;
+}
+
+.mobile-drawer-links a {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  color: var(--ink-mar);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   Hero — Asymmetric Architectural Split (No murky overlays on real photos!)
+   ========================================================================== */
+.hero-split {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  min-height: calc(100svh - var(--header-h));
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(36px, 5vw, 68px) clamp(24px, 4.5vw, 64px);
+  background-color: var(--bg-cal);
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-copy {
+  margin-block: clamp(28px, 4vw, 56px);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.65rem, 4.8vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--ink-mar);
+  margin-bottom: 22px;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  max-width: 48ch;
+  margin-bottom: 28px;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Real TheBookingButton Inline Reservation Strip */
+.booking-strip {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 22px;
+}
+
+.booking-strip-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-mar);
+  margin-bottom: 12px;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.75fr auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 11px;
+  border: 1px solid var(--line-strong);
+  background-color: var(--bg-blanco);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--ink-mar);
+  outline: none;
+}
+
+.hero-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-piedra);
+}
+
+.hero-photo-frame {
+  flex: 1;
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-photo-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  background-color: var(--bg-piedra);
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.video-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--ink-mar);
+}
+
+.video-trigger:hover {
+  color: var(--accent-terracota);
+}
+
+/* ==========================================================================
+   Architectural Fact Ribbon (Real Monte Pego facts)
+   ========================================================================== */
+.fact-ribbon {
+  border-bottom: 1px solid var(--line);
+  background-color: var(--bg-piedra);
+}
+
+.fact-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.fact-cell {
+  padding: 28px 24px;
+  border-right: 1px solid var(--line);
+}
+
+.fact-cell:last-child {
+  border-right: none;
+}
+
+.fact-num {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--ink-mar);
+  line-height: 1.05;
+}
+
+.fact-txt {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Apartamentos — Interactive Architectural Folio (NO SaaS cards!)
+   ========================================================================== */
+.collection-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.col-tab {
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  min-height: 44px;
+  transition: all 180ms var(--ease);
+}
+
+.col-tab:hover {
+  border-color: var(--ink-mar);
+}
+
+.col-tab.is-active {
+  background-color: var(--ink-mar);
+  border-color: var(--ink-mar);
+  color: var(--bg-cal);
+}
+
+.folio-layout {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.folio-layout > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Left Index List */
+.folio-index {
+  border-top: 1px solid var(--line-strong);
+}
+
+.folio-row {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 16px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 180ms var(--ease), padding-left 180ms var(--ease);
+}
+
+.folio-row:hover {
+  background-color: rgba(18, 52, 77, 0.04);
+}
+
+.folio-row.is-active {
+  background-color: var(--bg-piedra);
+  border-left: 3px solid var(--accent-terracota);
+  padding-left: 20px;
+}
+
+.folio-row-name {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--ink-mar);
+  line-height: 1.15;
+}
+
+.folio-row-sub {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+.folio-row-meta {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.folio-row-meta strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Right Sticky Architectural Stage */
+.folio-stage {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  background-color: var(--bg-blanco);
+  border: 1px solid var(--line);
+}
+
+.stage-photo-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-piedra);
+}
+
+.stage-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.stage-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  background-color: var(--bg-cal);
+  border-bottom: 1px solid var(--line);
+  width: 100%;
+}
+
+.stage-thumb {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  opacity: 0.65;
+  border-bottom: 3px solid transparent;
+  transition: opacity 160ms;
+}
+
+.stage-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage-thumb.is-active,
+.stage-thumb:hover {
+  opacity: 1;
+}
+
+.stage-thumb.is-active {
+  border-bottom-color: var(--accent-terracota);
+}
+
+.stage-body {
+  padding: 28px 32px 32px;
+}
+
+.stage-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.stage-title {
+  font-family: var(--font-serif);
+  font-size: 2.15rem;
+  font-weight: 600;
+  color: var(--ink-mar);
+  line-height: 1.1;
+}
+
+.stage-tier {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-terracota);
+  white-space: nowrap;
+}
+
+.stage-desc {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  margin-bottom: 22px;
+}
+
+.stage-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  padding-block: 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 22px;
+  font-size: 0.85rem;
+}
+
+.stage-specs dt {
+  color: var(--ink-light);
+  font-size: 0.75rem;
+}
+
+.stage-specs dd {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.stage-amenities {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+  margin-bottom: 24px;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.stage-amenities li::before {
+  content: "— ";
+  color: var(--accent-terracota);
+}
+
+.stage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Services — Alternating Editorial Spreads (Real Photos, No Tabs Box)
+   ========================================================================== */
+.spreads-stack {
+  display: grid;
+  gap: clamp(56px, 7vw, 96px);
+}
+
+.spread {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+
+.spread--reverse {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.spread--reverse .spread-media {
+  order: 2;
+}
+
+.spread-media {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.spread-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.spread-media img:nth-child(2) {
+  aspect-ratio: 3 / 4;
+}
+
+.spread-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 2.8vw, 2.5rem);
+  font-weight: 500;
+  color: var(--ink-mar);
+  margin-bottom: 14px;
+  line-height: 1.12;
+}
+
+.spread-text {
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+}
+
+.spread-details {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.spread-details li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.88rem;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.spread-details span {
+  color: var(--ink-muted);
+  text-align: right;
+}
+
+/* ==========================================================================
+   Real Packages & Stays Ledger (On Deep Sea Background)
+   ========================================================================== */
+.packages-ledger {
+  border-top: 1px solid rgba(250, 248, 244, 0.22);
+}
+
+.package-row {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr auto;
+  gap: 32px;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(250, 248, 244, 0.18);
+}
+
+.package-name {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: var(--bg-cal);
+  line-height: 1.15;
+}
+
+.package-tag {
+  font-size: 0.78rem;
+  color: #E3B398;
+  margin-top: 4px;
+}
+
+.package-desc {
+  font-size: 0.94rem;
+  color: rgba(250, 248, 244, 0.82);
+  max-width: 56ch;
+}
+
+/* ==========================================================================
+   Surroundings — Interactive 9-Attraction Editorial Explorer (Real Photos)
+   ========================================================================== */
+.env-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.env-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line-strong);
+}
+
+.env-btn {
+  text-align: left;
+  padding: 15px 14px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  transition: background-color 160ms;
+}
+
+.env-btn:hover {
+  background-color: rgba(18, 52, 77, 0.04);
+}
+
+.env-btn.is-active {
+  background-color: var(--bg-blanco);
+  border-left: 3px solid var(--accent-olivo);
+  padding-left: 18px;
+}
+
+.env-btn-title {
+  font-family: var(--font-serif);
+  font-size: 1.38rem;
+  font-weight: 600;
+  color: var(--ink-mar);
+}
+
+.env-btn-dist {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.env-feature {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+}
+
+.env-feature-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-piedra-deep);
+  margin-bottom: 22px;
+}
+
+.env-feature-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.env-feature-title {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  color: var(--ink-mar);
+  margin-bottom: 10px;
+}
+
+.env-feature-dist {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-olivo);
+  margin-bottom: 12px;
+}
+
+.env-feature-desc {
+  color: var(--ink-muted);
+  max-width: 56ch;
+}
+
+/* ==========================================================================
+   Real Photo Archive (Editorial Contact Sheet)
+   ========================================================================== */
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.archive-item {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-piedra);
+  grid-column: span 4;
+  aspect-ratio: 4 / 3;
+}
+
+.archive-item--span6 {
+  grid-column: span 6;
+  aspect-ratio: 16 / 10;
+}
+
+.archive-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 420ms var(--ease);
+}
+
+.archive-item:hover img {
+  transform: scale(1.03);
+}
+
+.archive-caption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 28px 14px 12px;
+  background: linear-gradient(to top, rgba(18, 52, 77, 0.78), transparent);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  text-align: left;
+}
+
+/* ==========================================================================
+   Location, Real AP-7 Directions & Contact
+   ========================================================================== */
+.loc-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.map-frame {
+  width: 100%;
+  height: 340px;
+  border: 1px solid var(--line);
+  display: block;
+}
+
+.route-ledger {
+  margin-top: 24px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.route-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+
+.route-row strong {
+  color: var(--ink-mar);
+}
+
+.route-row span {
+  color: var(--ink-muted);
+  text-align: right;
+}
+
+.contact-panel {
+  background-color: var(--bg-blanco);
+  border: 1px solid var(--line);
+  padding: clamp(24px, 3vw, 40px);
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.form-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-feedback {
+  padding: 12px 16px;
+  background-color: rgba(61, 90, 69, 0.10);
+  border-left: 3px solid var(--accent-olivo);
+  color: var(--accent-olivo);
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  background-color: #0E2638;
+  color: rgba(250, 248, 244, 0.82);
+  padding-top: 64px;
+  padding-bottom: 36px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(250, 248, 244, 0.14);
+}
+
+.footer-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--bg-cal);
+  margin-bottom: 14px;
+}
+
+.footer-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  font-size: 0.86rem;
+}
+
+.footer-list a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 24px;
+  font-size: 0.78rem;
+  color: rgba(250, 248, 244, 0.62);
+}
+
+/* ==========================================================================
+   Modals (Lightbox & Real YouTube Video)
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background-color: rgba(10, 24, 38, 0.84);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-backdrop[hidden] {
+  display: none;
+}
+
+.modal-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  background-color: var(--bg-cal);
+  color: var(--ink-mar);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.lightbox-box {
+  max-width: 1080px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.lightbox-box img {
+  max-height: 78svh;
+  width: auto;
+}
+
+.lightbox-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--bg-cal);
+  font-size: 0.86rem;
+}
+
+.video-box {
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+}
+
+.video-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+  }
+
+  .hero-split,
+  .section-intro,
+  .folio-layout,
+  .spread,
+  .spread--reverse,
+  .env-layout,
+  .loc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spread--reverse .spread-media {
+    order: 0;
+  }
+
+  .folio-stage,
+  .env-feature {
+    position: static;
+  }
+
+  .fact-ribbon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fact-cell {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .package-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .archive-item,
+  .archive-item--span6 {
+    grid-column: span 6;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .brand-place,
+  .header-right .btn {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 1.4rem;
+  }
+
+  .lang-btn {
+    padding: 5px 7px;
+    min-height: 32px;
+  }
+
+  .booking-grid,
+  .stage-specs,
+  .stage-amenities,
+  .form-2col,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-item,
+  .archive-item--span6 {
+    grid-column: span 12;
+  }
+
+  .spread-media {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

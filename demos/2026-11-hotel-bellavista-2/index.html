@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bellavista Residencial — Monte Pego, Costa Blanca</title>
+  <meta name="description" content="Bellavista Residencial en Monte Pego (Pego, Alicante). Apartamentos y residencias blancas con vistas al Mediterráneo y al Parque Natural del Marjal Pego-Oliva.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Bellavista Residencial Monte Pego">
+        <span class="brand-title">Bellavista Residencial</span>
+        <span class="brand-place">MONTE PEGO · ALICANTE</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#apartamentos" class="nav-link" data-i18n="nav_rooms">Apartamentos</a>
+        <a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios</a>
+        <a href="#escapadas" class="nav-link" data-i18n="nav_packages">Escapadas</a>
+        <a href="#entorno" class="nav-link" data-i18n="nav_env">Entorno</a>
+        <a href="#galeria" class="nav-link" data-i18n="nav_gallery">Galería</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="lang-switcher" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn is-active" data-lang="es">ES</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="de">DE</button>
+        </div>
+        <a href="https://app.thebookingbutton.com/properties/bellavistadirect" target="_blank" rel="noopener noreferrer" class="btn btn--terracota" data-i18n="nav_book">Reservar ahora</a>
+        <button type="button" id="mobile-open" class="mobile-toggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <span class="brand-title">Bellavista</span>
+      <button type="button" id="mobile-close" class="mobile-toggle" style="display:inline-flex;" aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="mobile-drawer-links" aria-label="Menú móvil">
+      <a href="#apartamentos" data-i18n="nav_rooms">Apartamentos</a>
+      <a href="#servicios" data-i18n="nav_services">Servicios</a>
+      <a href="#escapadas" data-i18n="nav_packages">Escapadas</a>
+      <a href="#entorno" data-i18n="nav_env">Entorno</a>
+      <a href="#galeria" data-i18n="nav_gallery">Galería</a>
+      <a href="#ubicacion">Cómo llegar y contacto</a>
+    </nav>
+    <a href="https://app.thebookingbutton.com/properties/bellavistadirect" target="_blank" rel="noopener noreferrer" class="btn btn--terracota" data-i18n="nav_book">Reservar ahora</a>
+  </aside>
+
+  <main>
+    <!-- Hero: Asymmetric Architectural Split (Real Monte Pego Photo, Unobscured) -->
+    <section id="inicio" class="hero-split">
+      <div class="hero-left">
+        <div class="hero-meta">
+          <span data-i18n="hero_place">Monte Pego · La Marina Alta, Alicante</span>
+          <span>38.8427° N · 0.0592° W</span>
+        </div>
+
+        <div class="hero-copy">
+          <h1 class="hero-title" data-i18n="hero_title">Balcón blanco sobre el Marjal y el Mediterráneo.</h1>
+          <p class="hero-subtitle" data-i18n="hero_sub">
+            Tres bloques residenciales blancos rodeados de jardines privados en lo alto de Monte Pego, a 10 km de las playas de Dénia y Oliva.
+          </p>
+          <div class="hero-links">
+            <a href="#apartamentos" class="btn btn--sea" data-i18n="hero_cta_rooms">Recorrer los 8 apartamentos</a>
+            <button type="button" class="btn btn--line" data-open-video data-i18n="hero_cta_video">Ver vídeo del complejo</button>
+          </div>
+        </div>
+
+        <!-- Inline Booking Strip linked to real TheBookingButton engine -->
+        <div class="booking-strip">
+          <div class="booking-strip-title" data-i18n="book_strip_title">Consulta disponibilidad en tiempo real (Reserva directa)</div>
+          <form id="hero-booking-form" class="booking-grid">
+            <div class="field">
+              <label for="book-in" data-i18n="book_in">Llegada</label>
+              <input id="book-in" type="date" required>
+            </div>
+            <div class="field">
+              <label for="book-out" data-i18n="book_out">Salida</label>
+              <input id="book-out" type="date" required>
+            </div>
+            <div class="field">
+              <label for="book-guests" data-i18n="book_guests">Huéspedes</label>
+              <select id="book-guests">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--terracota" data-i18n="book_btn">Buscar fechas</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-photo-frame">
+          <img
+            src="assets/images/index/idx-4.jpg"
+            alt="Vista real de Bellavista Residencial en Monte Pego: bloques blancos, olivo, jardines, piscina y mar Mediterráneo al fondo"
+            width="1400"
+            height="933"
+          >
+        </div>
+        <div class="hero-photo-bar">
+          <span>Fotografía real · Monte Pego hacia el Marjal Pego-Oliva y el mar</span>
+          <button type="button" class="video-trigger" data-open-video>▶ Tus Vacaciones en el Mediterráneo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fact Ribbon -->
+    <div class="fact-ribbon">
+      <div class="container fact-ribbon-grid">
+        <div class="fact-cell">
+          <div class="fact-num">8</div>
+          <div class="fact-txt" data-i18n="fact_1_t">Categorías de apartamento</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-num">10 km</div>
+          <div class="fact-txt" data-i18n="fact_2_t">De las playas de Dénia y Oliva</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-num">1 h</div>
+          <div class="fact-txt" data-i18n="fact_3_t">A aeropuertos Alicante y Valencia</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-num">ES · EN · FR · DE</div>
+          <div class="fact-txt" data-i18n="fact_4_t">Atención en recepción</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apartments: Interactive Architectural Folio -->
+    <section id="apartamentos" class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-heading" data-i18n="rooms_title">Ocho formas de habitar Monte Pego</h2>
+          <p class="section-desc" data-i18n="rooms_desc">
+            Selecciona cualquier tipología del índice para explorar sus fotografías reales, superficie, terraza y equipamiento exacto.
+          </p>
+        </div>
+
+        <div class="collection-tabs" role="group" aria-label="Filtrar colección">
+          <button type="button" class="col-tab is-active" data-collection="all" data-i18n="tab_all">Todos (8)</button>
+          <button type="button" class="col-tab" data-collection="estandar" data-i18n="tab_estandar">Estándar &amp; Garden</button>
+          <button type="button" class="col-tab" data-collection="atico" data-i18n="tab_atico">Ático</button>
+          <button type="button" class="col-tab" data-collection="superior" data-i18n="tab_superior">Superior</button>
+          <button type="button" class="col-tab" data-collection="deluxe" data-i18n="tab_deluxe">Deluxe &amp; Spa</button>
+        </div>
+
+        <div class="folio-layout">
+          <div id="folio-index" class="folio-index"></div>
+          <article id="folio-stage" class="folio-stage" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services: Alternating Editorial Spreads with Real Photos -->
+    <section id="servicios" class="section section--stone">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-heading" data-i18n="services_title">Servicios del complejo</h2>
+          <p class="section-desc" data-i18n="services_desc">
+            Piscina panorámica exterior, gastronomía propia, bienestar de temporada y espacios de ocio rodeados de vegetación mediterránea.
+          </p>
+        </div>
+
+        <div class="spreads-stack">
+          <!-- Spread 1: Piscina -->
+          <div class="spread">
+            <div class="spread-media">
+              <img src="assets/images/services/piscina-1.jpg" alt="Piscina exterior y solárium de Bellavista Residencial" loading="lazy">
+              <img src="assets/images/services/piscina-2.jpg" alt="Zona de piscina con vistas en Monte Pego" loading="lazy">
+            </div>
+            <div>
+              <h3 class="spread-title">Piscina exterior y solárium panorámico</h3>
+              <p class="spread-text">
+                Amplia explanada de terracota con hamacas, sombrillas y vistas abiertas al mar Mediterráneo, conectada directamente con la terraza del Bar Bellavista.
+              </p>
+              <ul class="spread-details">
+                <li><strong>Piscina exterior</strong><span>Tumbonas, sombrillas y vistas al mar</span></li>
+                <li><strong>Piscina interior climatizada</strong><span>De temporada · incluida en Deluxe</span></li>
+                <li><strong>Sauna y baño turco</strong><span>Circuito termal incluido en Deluxe</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Spread 2: Restaurante & Bar -->
+          <div class="spread spread--reverse">
+            <div class="spread-media">
+              <img src="assets/images/services/restaurante-1.jpg" alt="Asador Restaurante Bellavista en Monte Pego" loading="lazy">
+              <img src="assets/images/services/bar-bellavista-1.jpg" alt="Bar Bellavista junto a la piscina" loading="lazy">
+            </div>
+            <div>
+              <h3 class="spread-title">Asador Restaurante y Bar Bellavista</h3>
+              <p class="spread-text">
+                Restaurante propio con vistas a los jardines y a la piscina, acompañado del Bar Bellavista en terraza abierta para disfrutar de bebidas y comidas ligeras todo el día.
+              </p>
+              <ul class="spread-details">
+                <li><strong>Carta del Bar</strong><span>Cócteles, batidos, helados, ensaladas y pizzas</span></li>
+                <li><strong>Julio y agosto</strong><span>Abierto todos los días desde las 10:00</span></li>
+                <li><strong>Resto del año</strong><span>Horario de recepción</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Spread 3: Gimnasio, Jardines y Ocio -->
+          <div class="spread">
+            <div class="spread-media">
+              <img src="assets/images/services/gym-1.jpg" alt="Gimnasio equipado de Bellavista Residencial" loading="lazy">
+              <img src="assets/images/index/idx-3.jpg" alt="Arcos blancos y jardines de Bellavista Residencial" loading="lazy">
+            </div>
+            <div>
+              <h3 class="spread-title">Gimnasio, cicloturismo y ocio al aire libre</h3>
+              <p class="spread-text">
+                Equipamiento completo para mantener tu entrenamiento en la Costa Blanca junto a zonas de recreo pensadas para familias que viajan con niños.
+              </p>
+              <ul class="spread-details">
+                <li><strong>Gimnasio</strong><span>Spinning, cinta de correr, pesas y máquinas</span></li>
+                <li><strong>Ocio en el complejo</strong><span>Minigolf, ping-pong y parque infantil</span></li>
+                <li><strong>Comodidades</strong><span>Parking privado y mascotas bajo petición</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Packages & Direct Booking Ledger -->
+    <section id="escapadas" class="section section--sea">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-heading" data-i18n="pkg_title">Escapadas y ventajas de reserva directa</h2>
+          <p class="section-desc" data-i18n="pkg_desc">
+            Propuestas reales pensadas para disfrutar de la naturaleza del Marjal, el cicloturismo de la Marina Alta y el bienestar Deluxe.
+          </p>
+        </div>
+
+        <div id="packages-ledger" class="packages-ledger"></div>
+      </div>
+    </section>
+
+    <!-- Surroundings: 9 Real Attractions Explorer -->
+    <section id="entorno" class="section section--stone">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-heading" data-i18n="env_title">Nueve planes en la Costa Blanca</h2>
+          <p class="section-desc" data-i18n="env_desc">
+            Desde el humedal del Marjal Pego-Oliva a los pies de la colina hasta las calas de Jávea y el macizo de El Montgó.
+          </p>
+        </div>
+
+        <div class="env-layout">
+          <div id="env-list" class="env-list"></div>
+          <div id="env-feature" class="env-feature" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Photo Archive -->
+    <section id="galeria" class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-heading" data-i18n="gal_title">Archivo fotográfico real</h2>
+          <p class="section-desc" data-i18n="gal_desc">
+            Fotografías auténticas de Bellavista Residencial, sus apartamentos y el paisaje de Monte Pego.
+          </p>
+        </div>
+
+        <div class="collection-tabs" role="group" aria-label="Filtrar galería">
+          <button type="button" class="col-tab is-active" data-gal-filter="all" data-i18n="gal_all">Todas</button>
+          <button type="button" class="col-tab" data-gal-filter="bellavista" data-i18n="gal_bellavista">Bellavista y Alrededores</button>
+          <button type="button" class="col-tab" data-gal-filter="apartamentos" data-i18n="gal_apartamentos">Apartamentos</button>
+          <button type="button" class="col-tab" data-gal-filter="entorno" data-i18n="gal_entorno">Entorno</button>
+        </div>
+
+        <div id="archive-grid" class="archive-grid"></div>
+      </div>
+    </section>
+
+    <!-- Location, Real AP-7 Directions & Contact -->
+    <section id="ubicacion" class="section section--stone">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-heading" data-i18n="loc_title">Cómo llegar y contacto</h2>
+          <p class="section-desc" data-i18n="loc_desc">
+            Calle las Rosas S/N, 03780 Pego, Alicante. Acceso cómodo por la autopista AP-7 (salida 62).
+          </p>
+        </div>
+
+        <div class="loc-grid">
+          <div>
+            <iframe
+              class="map-frame"
+              title="Ubicación real de Bellavista Residencial en Monte Pego"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-0.12%2C38.80%2C0.01%2C38.89&amp;layer=mapnik&amp;marker=38.842715%2C-0.059223"
+            ></iframe>
+
+            <div class="route-ledger">
+              <div class="route-row">
+                <strong>Dirección</strong>
+                <span>Calle las Rosas S/N, 03780 Pego, Alicante</span>
+              </div>
+              <div class="route-row">
+                <strong>Teléfono y Email</strong>
+                <span><a href="tel:+34966400400">+34 966 400 400</a> · info@bellavistaresidential.com</span>
+              </div>
+              <div class="route-row">
+                <strong>Playas de Dénia y Oliva</strong>
+                <span>10 km · ~12 min en coche</span>
+              </div>
+              <div class="route-row">
+                <strong>Aeropuerto de Alicante (ALC)</strong>
+                <span>95 km · 1 h 10 min (AP-7 salida 62)</span>
+              </div>
+              <div class="route-row">
+                <strong>Aeropuerto de Valencia (VLC)</strong>
+                <span>105 km · 1 h 15 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-panel">
+            <h3 class="serif" style="font-size:2rem; color:var(--ink-mar);" data-i18n="contact_heading">Contacta directamente con recepción</h3>
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-2col">
+                <div class="field">
+                  <label for="c-name" data-i18n="c_name">Nombre</label>
+                  <input id="c-name" type="text" required>
+                </div>
+                <div class="field">
+                  <label for="c-phone" data-i18n="c_phone">Teléfono</label>
+                  <input id="c-phone" type="tel">
+                </div>
+              </div>
+              <div class="field">
+                <label for="c-email" data-i18n="c_email">Email</label>
+                <input id="c-email" type="email" required>
+              </div>
+              <div class="field">
+                <label for="c-msg" data-i18n="c_msg">Mensaje</label>
+                <textarea id="c-msg" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn--sea" data-i18n="c_send">Enviar mensaje</button>
+              <div id="contact-feedback" class="form-feedback" hidden role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="serif" style="font-size:1.75rem; color:var(--bg-cal);">Bellavista Residencial</div>
+          <p style="margin-top:10px; font-size:0.86rem; max-width:34ch;">
+            Apartamentos turísticos y residencias mediterráneas en Monte Pego, La Marina Alta (Alicante, España).
+          </p>
+          <p style="margin-top:12px; font-size:0.82rem; opacity:0.8;">
+            Calle las Rosas S/N · 03780 Pego, Alicante<br>
+            Tel: +34 966 400 400 · info@bellavistaresidential.com
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Alojamiento</h4>
+          <ul class="footer-list">
+            <li><a href="#apartamentos">Estándar y Vista Mar</a></li>
+            <li><a href="#apartamentos">3 Dormitorios Garden</a></li>
+            <li><a href="#apartamentos">Ático Vista Mar</a></li>
+            <li><a href="#apartamentos">Superior y Deluxe Spa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Complejo</h4>
+          <ul class="footer-list">
+            <li><a href="#servicios">Piscina, Restaurante y Bar</a></li>
+            <li><a href="#escapadas">Escapadas y Paquetes</a></li>
+            <li><a href="#entorno">Actividades Costa Blanca</a></li>
+            <li><a href="#galeria">Galería Fotográfica</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Información Legal</h4>
+          <ul class="footer-list">
+            <li><a href="https://www.bellavistaresidential.com/es/politica-de-privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></li>
+            <li><a href="https://www.bellavistaresidential.com/es/cookies.html" target="_blank" rel="noopener noreferrer">Cookies</a></li>
+            <li><a href="https://www.bellavistaresidential.com/es/aviso-legal.html" target="_blank" rel="noopener noreferrer">Aviso Legal (HIRA COMPANY SA)</a></li>
+            <li><a href="https://app.thebookingbutton.com/properties/bellavistadirect" target="_blank" rel="noopener noreferrer">Motor Oficial de Reservas</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Bellavista Residencial · HIRA COMPANY SA (NIF A29434610)</span>
+        <span>Monte Pego · Costa Blanca · ES · EN · FR · DE</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-label="Visor de fotografías">
+    <button type="button" class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+    <div class="lightbox-box">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-bar">
+        <button type="button" id="lb-prev" class="btn btn--line-light">Anterior</button>
+        <div style="text-align:center;">
+          <div id="lightbox-caption"></div>
+          <small id="lightbox-counter" style="opacity:0.75;"></small>
+        </div>
+        <button type="button" id="lb-next" class="btn btn--line-light">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real YouTube Video Modal -->
+  <div id="video-modal" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-label="Vídeo de Bellavista Residencial">
+    <button type="button" class="modal-close" data-close-modal aria-label="Cerrar vídeo">✕</button>
+    <div class="video-box">
+      <iframe id="video-iframe" title="Tus Vacaciones en el Mediterráneo — Bellavista Residencial" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

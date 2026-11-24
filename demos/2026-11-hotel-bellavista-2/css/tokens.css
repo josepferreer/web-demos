@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Bellavista Residencial 2.0 — Editorial Tokens (Monte Pego, Costa Blanca)
+   Derived directly from the property's real materials:
+   whitewashed facades, terracotta tiles, Mediterranean sea, olive groves.
+   ========================================================================== */
+
+:root {
+  /* Ground & Architectural Surfaces */
+  --bg-cal: #FAF8F4;                 /* Encalado luminoso */
+  --bg-piedra: #F1ECE3;              /* Piedra arenisca cálida */
+  --bg-piedra-deep: #E5DDD0;         /* Banda sutil */
+  --bg-blanco: #FFFFFF;
+
+  /* Brand & Material Accents */
+  --ink-mar: #12344D;                /* Azul Mediterráneo profundo */
+  --ink-mar-hover: #0B2336;
+  --accent-terracota: #B45B3A;       /* Teja y suelo de piscina real */
+  --accent-terracota-hover: #96482B;
+  --accent-olivo: #3D5A45;           /* Marjal Pego-Oliva & olivos */
+
+  /* Typography Ink */
+  --ink: #1E252B;                    /* Contraste >13:1 sobre #FAF8F4 */
+  --ink-muted: #535E68;              /* Contraste >6.2:1 sobre #FAF8F4 */
+  --ink-light: #76808A;
+
+  /* Hairlines */
+  --line: rgba(18, 52, 77, 0.14);
+  --line-strong: rgba(18, 52, 77, 0.30);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout */
+  --max-w: 1360px;
+  --header-h: 76px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

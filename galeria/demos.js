@@ -1,5 +1,23 @@
 window.DEMOS = [
     {
+        "carpeta":  "2026-11-sara-brink",
+        "titulo":  "Brink Inmo Consulting (Sara Brink)",
+        "autor":  "Pau",
+        "fecha":  "2026-11",
+        "sector":  "Inmobiliaria",
+        "descripcion":  "Web inmobiliaria minimalista para Brink Inmo Consulting en la Costa Blanca: alquiler vacacional, obra nueva y gestión de propiedades.",
+        "preview":  true
+    },
+    {
+        "carpeta":  "2026-11-hotel-bellavista-2",
+        "titulo":  "Bellavista Residencial 2.0",
+        "autor":  "Pau",
+        "fecha":  "2026-11",
+        "sector":  "Turismo",
+        "descripcion":  "Propuesta 2.0 para Bellavista Residencial en Monte Pego, con diseño arquitectónico mediterráneo, galería y selector multiidioma.",
+        "preview":  true
+    },
+    {
         "carpeta":  "2026-11-bellavista",
         "titulo":  "Bellavista Residencial",
         "autor":  "Josep",
