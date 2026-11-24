@@ -1,38 +1,32 @@
 /* ==========================================================================
-   Bellavista Residencial 2.0 — Editorial Tokens (Monte Pego, Costa Blanca)
-   Derived directly from the property's real materials:
-   whitewashed facades, terracotta tiles, Mediterranean sea, olive groves.
+   Bellavista Residencial 2.0 — Vintage Resort Editorial Tokens
+   Inspired literally by the Late Checkout Edit reference aesthetic:
+   warm cream-sand paper, charcoal-espresso ink, fine hairlines,
+   condensed high-contrast serif display & delicate script masthead.
    ========================================================================== */
 
 :root {
-  /* Ground & Architectural Surfaces */
-  --bg-cal: #FAF8F4;                 /* Encalado luminoso */
-  --bg-piedra: #F1ECE3;              /* Piedra arenisca cálida */
-  --bg-piedra-deep: #E5DDD0;         /* Banda sutil */
-  --bg-blanco: #FFFFFF;
+  /* Paper & Ink Palette */
+  --paper: #EFE6DC;                  /* Warm cream-sand editorial sheet */
+  --paper-light: #F7F1EA;            /* Lighter elevated cream */
+  --paper-deep: #E5D8C9;             /* Subtle warm sand tone */
 
-  /* Brand & Material Accents */
-  --ink-mar: #12344D;                /* Azul Mediterráneo profundo */
-  --ink-mar-hover: #0B2336;
-  --accent-terracota: #B45B3A;       /* Teja y suelo de piscina real */
-  --accent-terracota-hover: #96482B;
-  --accent-olivo: #3D5A45;           /* Marjal Pego-Oliva & olivos */
-
-  /* Typography Ink */
-  --ink: #1E252B;                    /* Contraste >13:1 sobre #FAF8F4 */
-  --ink-muted: #535E68;              /* Contraste >6.2:1 sobre #FAF8F4 */
-  --ink-light: #76808A;
+  --ink: #2A2521;                    /* Deep vintage espresso-charcoal */
+  --ink-muted: #665C53;              /* Warm taupe body secondary */
+  --ink-faint: #8C8075;              /* Metadata & dates */
+  --cream-white: #FAF6F0;            /* Hero text over photography */
 
   /* Hairlines */
-  --line: rgba(18, 52, 77, 0.14);
-  --line-strong: rgba(18, 52, 77, 0.30);
+  --hairline: rgba(42, 37, 33, 0.22);
+  --hairline-strong: rgba(42, 37, 33, 0.55);
 
   /* Typography */
+  --font-script: 'Pinyon Script', cursive;
+  --font-display: 'Instrument Serif', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Layout */
-  --max-w: 1360px;
-  --header-h: 76px;
+  --sheet-max: 1240px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }

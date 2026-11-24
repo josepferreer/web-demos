@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Bellavista Residencial 2.0 — Editorial Interactive Controller
+   Bellavista Residencial 2.0 — Vintage Editorial & Motion Controller
    ========================================================================== */
 
 (function () {
@@ -8,15 +8,52 @@
   const DATA = window.BELLAVISTA_DATA;
   const I18N = window.BELLAVISTA_I18N;
 
+  const SERVICES_DETAIL = {
+    dining: {
+      title: "Asador Restaurante & Bar Bellavista",
+      desc: "Restaurante propio con vistas a los jardines y a la piscina, junto al Bar Bellavista en terraza abierta para bebidas y comidas ligeras todo el día.",
+      items: [
+        ["Restaurante", "Asador mediterráneo en el complejo"],
+        ["Bar Bellavista", "Cócteles, batidos, helados, ensaladas y pizzas"],
+        ["Julio y agosto", "Abierto todos los días desde las 10:00"],
+        ["Resto del año", "Horario de recepción"]
+      ]
+    },
+    pool: {
+      title: "Piscina exterior, solárium y Spa de temporada",
+      desc: "Amplia explanada con hamacas y sombrillas frente al mar Mediterráneo, complementada con piscina interior climatizada, sauna y baño turco en categoría Deluxe.",
+      items: [
+        ["Piscina exterior", "Tumbonas, sombrillas y vistas al mar"],
+        ["Piscina climatizada", "Interior de temporada (incluida en Deluxe)"],
+        ["Circuito termal", "Sauna finlandesa y baño turco"],
+        ["Acceso", "Conectada con jardines privados y Bar"]
+      ]
+    },
+    gym: {
+      title: "Gimnasio, cicloturismo y ocio al aire libre",
+      desc: "Espacios pensados tanto para entrenar en la Costa Blanca como para disfrutar en familia sin salir de Monte Pego.",
+      items: [
+        ["Gimnasio", "Spinning, cinta, pesas y máquinas de fuerza"],
+        ["Ocio familiar", "Minigolf, ping-pong y parque infantil"],
+        ["Cicloturismo", "Taller, alquiler de bicis y rutas Marina Alta"],
+        ["Comodidades", "Parking privado y mascotas bajo petición"]
+      ]
+    }
+  };
+
   const state = {
     lang: "es",
     collection: "all",
-    activeAptId: DATA.apartments[0].id,
-    activePhotoIdx: 0,
+    openAptId: DATA.apartments[0].id,
+    aptPhotoIdx: {},
+    activeService: "pool",
     activeAttrId: DATA.attractions[0].id,
     galleryFilter: "all",
     lightboxList: [],
-    lightboxIdx: 0
+    lightboxIdx: 0,
+    heroSlide: 0,
+    heroPaused: false,
+    heroTimer: null
   };
 
   const t = (key) => (I18N[state.lang] && I18N[state.lang][key]) || I18N.es[key] || key;
@@ -57,8 +94,89 @@
   }
 
   /* ------------------------------------------------------------------------
-     i18n
+     Cinematic Hero Ken Burns Living Reel (with Play / Pause & Dots)
      ------------------------------------------------------------------------ */
+  function initHeroReel() {
+    const hero = document.getElementById("inicio");
+    const slides = Array.from(document.querySelectorAll(".hero-slide"));
+    const dots = Array.from(document.querySelectorAll(".reel-dot"));
+    const captionEl = document.getElementById("hero-slide-caption");
+    const toggleBtn = document.getElementById("reel-toggle");
+    const toggleIcon = document.getElementById("reel-toggle-icon");
+    const toggleLabel = document.getElementById("reel-toggle-label");
+
+    if (!hero || !slides.length) return;
+
+    function goToSlide(idx) {
+      state.heroSlide = (idx + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle("is-active", i === state.heroSlide));
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === state.heroSlide));
+      if (captionEl) {
+        captionEl.textContent = slides[state.heroSlide].dataset.caption || "";
+      }
+    }
+
+    function startAuto() {
+      clearInterval(state.heroTimer);
+      if (state.heroPaused) return;
+      state.heroTimer = setInterval(() => goToSlide(state.heroSlide + 1), 6500);
+    }
+
+    function setPaused(paused) {
+      state.heroPaused = paused;
+      hero.classList.toggle("is-paused", paused);
+      if (toggleBtn) toggleBtn.setAttribute("aria-pressed", String(paused));
+      if (toggleIcon) toggleIcon.textContent = paused ? "▶" : "⏸";
+      if (toggleLabel) toggleLabel.textContent = paused ? "Reanudar" : "Pausar";
+      if (paused) {
+        clearInterval(state.heroTimer);
+      } else {
+        startAuto();
+      }
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => setPaused(!state.heroPaused));
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        goToSlide(parseInt(dot.dataset.slideTo, 10));
+        if (!state.heroPaused) startAuto();
+      });
+    });
+
+    // Respect prefers-reduced-motion automatically
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setPaused(true);
+    } else {
+      startAuto();
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     Scroll Reveal Choreography
+     ------------------------------------------------------------------------ */
+  function initScrollReveals() {
+    const els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("is-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+  }
+
   function applyLang(lang) {
     state.lang = I18N[lang] ? lang : "es";
     document.documentElement.lang = state.lang;
@@ -70,128 +188,128 @@
       b.classList.toggle("is-active", on);
       b.setAttribute("aria-pressed", String(on));
     });
-    renderFolio();
-    renderPackages();
+    renderAccordion();
+  }
+
+  /* Service Detail beneath the Giant Overlapping SERVICES Trio */
+  function renderServiceDetail() {
+    const box = document.getElementById("service-detail-box");
+    if (!box) return;
+    const s = SERVICES_DETAIL[state.activeService] || SERVICES_DETAIL.pool;
+    document.querySelectorAll("[data-service-key]").forEach((el) => {
+      el.classList.toggle("is-active", el.dataset.serviceKey === state.activeService);
+    });
+    box.innerHTML = `
+      <div>
+        <h3 class="service-detail-title">${s.title}</h3>
+        <p class="service-detail-desc">${s.desc}</p>
+      </div>
+      <ul class="service-detail-list">
+        ${s.items.map(([k, v]) => `<li><strong>${k}</strong><span>${v}</span></li>`).join("")}
+      </ul>
+    `;
   }
 
   /* ------------------------------------------------------------------------
-     Apartments Editorial Folio (Index + Sticky Real-Photo Stage)
+     APARTAMENTOS — Smooth In-Place Editorial Accordion (Zero scroll hunting!)
      ------------------------------------------------------------------------ */
-  function renderFolio() {
-    const indexEl = document.getElementById("folio-index");
-    const stageEl = document.getElementById("folio-stage");
-    if (!indexEl || !stageEl) return;
+  function renderAccordion() {
+    const root = document.getElementById("apt-accordion");
+    if (!root) return;
 
     const visible = DATA.apartments.filter((a) =>
       state.collection === "all" ? true : a.collection === state.collection
     );
 
-    if (!visible.some((a) => a.id === state.activeAptId)) {
-      state.activeAptId = visible[0].id;
-      state.activePhotoIdx = 0;
+    if (state.openAptId && !visible.some((a) => a.id === state.openAptId)) {
+      state.openAptId = visible[0]?.id || null;
     }
 
-    indexEl.innerHTML = visible.map((apt) => `
-      <button
-        type="button"
-        class="folio-row ${apt.id === state.activeAptId ? "is-active" : ""}"
-        data-apt-id="${apt.id}"
-        aria-pressed="${apt.id === state.activeAptId}"
-      >
-        <div>
-          <div class="folio-row-name">${apt.name[state.lang]}</div>
-          <div class="folio-row-sub">${apt.tierLabel[state.lang]} · ${apt.capacity}</div>
-        </div>
-        <div class="folio-row-meta">
-          <strong>${apt.size}</strong>
-          <span>+ ${apt.terrace}</span>
-        </div>
-      </button>
-    `).join("");
+    root.innerHTML = visible.map((apt) => {
+      const isOpen = apt.id === state.openAptId;
+      const pIdx = state.aptPhotoIdx[apt.id] || 0;
+      const mainPhoto = apt.photos[pIdx] || apt.photos[0];
 
-    const active = visible.find((a) => a.id === state.activeAptId) || visible[0];
-    const mainPhoto = active.photos[state.activePhotoIdx] || active.photos[0];
-
-    stageEl.innerHTML = `
-      <div class="stage-photo-wrap">
-        <img
-          src="${mainPhoto}"
-          alt="${active.name[state.lang]} — Bellavista Residencial Monte Pego"
-          data-open-apt-lightbox
-        >
-      </div>
-      <div class="stage-thumbs">
-        ${active.photos.map((src, i) => `
+      return `
+        <article class="apt-item ${isOpen ? "is-open" : ""}" data-apt-card="${apt.id}">
           <button
             type="button"
-            class="stage-thumb ${i === state.activePhotoIdx ? "is-active" : ""}"
-            data-thumb-idx="${i}"
-            aria-label="Foto ${i + 1} de ${active.name[state.lang]}"
+            class="apt-trigger"
+            data-toggle-apt="${apt.id}"
+            aria-expanded="${isOpen}"
           >
-            <img src="${src}" alt="" loading="lazy">
+            <img class="apt-mini-thumb" src="${apt.photos[0]}" alt="" loading="lazy">
+            <div>
+              <div class="apt-trigger-title">${apt.name[state.lang]}</div>
+              <div class="apt-trigger-sub">${apt.tierLabel[state.lang]} · ${apt.capacity}</div>
+            </div>
+            <div class="apt-trigger-metrics">
+              ${apt.size}
+              <span>+ ${apt.terrace}</span>
+            </div>
+            <span class="apt-plus" aria-hidden="true">+</span>
           </button>
-        `).join("")}
-      </div>
-      <div class="stage-body">
-        <div class="stage-head">
-          <h3 class="stage-title">${active.name[state.lang]}</h3>
-          <span class="stage-tier">${active.tierLabel[state.lang]}</span>
-        </div>
-        <p class="stage-desc">${active.summary[state.lang]}</p>
 
-        <dl class="stage-specs">
-          <div><dt>Superficie y terraza</dt><dd>${active.size} + ${active.terrace}</dd></div>
-          <div><dt>Capacidad máxima</dt><dd>${active.capacity}</dd></div>
-          <div><dt>Acceso / Planta</dt><dd>${active.access}</dd></div>
-          <div><dt>Climatización</dt><dd>${active.climate}</dd></div>
-          <div><dt>Cocina</dt><dd>${active.kitchen}</dd></div>
-          <div><dt>Baños</dt><dd>${active.baths}</dd></div>
-        </dl>
+          <div class="apt-drawer">
+            <div class="apt-drawer-inner">
+              <div class="apt-spread">
+                <div>
+                  <div class="stage-photo">
+                    <img
+                      src="${mainPhoto}"
+                      alt="${apt.name[state.lang]} — Bellavista Residencial"
+                      data-open-apt-lightbox="${apt.id}"
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="stage-thumbs">
+                    ${apt.photos.map((src, i) => `
+                      <button
+                        type="button"
+                        class="stage-thumb ${i === pIdx ? "is-active" : ""}"
+                        data-apt-thumb="${apt.id}"
+                        data-thumb-idx="${i}"
+                        aria-label="Foto ${i + 1} de ${apt.name[state.lang]}"
+                      >
+                        <img src="${src}" alt="" loading="lazy">
+                      </button>
+                    `).join("")}
+                  </div>
+                </div>
 
-        <ul class="stage-amenities">
-          ${active.amenities.map((item) => `<li>${item}</li>`).join("")}
-        </ul>
-
-        <div class="stage-actions">
-          <a href="${buildBookingUrl()}" target="_blank" rel="noopener noreferrer" class="btn btn--terracota" data-dynamic-booking>
-            ${t("room_check_btn")}
-          </a>
-          <a href="#ubicacion" class="btn btn--line">${t("room_ask_btn")}</a>
-        </div>
-      </div>
-    `;
+                <div>
+                  <p class="stage-desc">${apt.summary[state.lang]}</p>
+                  <dl class="stage-specs">
+                    <div><dt>Superficie y terraza</dt><dd>${apt.size} + ${apt.terrace}</dd></div>
+                    <div><dt>Capacidad máxima</dt><dd>${apt.capacity}</dd></div>
+                    <div><dt>Acceso / Planta</dt><dd>${apt.access}</dd></div>
+                    <div><dt>Climatización</dt><dd>${apt.climate}</dd></div>
+                    <div><dt>Cocina</dt><dd>${apt.kitchen}</dd></div>
+                    <div><dt>Baños</dt><dd>${apt.baths}</dd></div>
+                  </dl>
+                  <ul class="stage-amenities">
+                    ${apt.amenities.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                  <div class="stage-actions">
+                    <a href="${buildBookingUrl()}" target="_blank" rel="noopener noreferrer" class="pill-btn pill-btn--solid">
+                      ${t("room_check_btn")} →
+                    </a>
+                    <a href="#ubicacion" class="pill-btn">${t("room_ask_btn")}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join("");
   }
 
-  /* ------------------------------------------------------------------------
-     Real Packages Ledger
-     ------------------------------------------------------------------------ */
-  function renderPackages() {
-    const el = document.getElementById("packages-ledger");
-    if (!el) return;
-    el.innerHTML = DATA.packages.map((p) => `
-      <article class="package-row">
-        <div>
-          <h3 class="package-name">${p.name[state.lang]}</h3>
-          <div class="package-tag">${p.tag[state.lang]}</div>
-        </div>
-        <p class="package-desc">${p.desc[state.lang]}</p>
-        <div>
-          ${p.actionType === "booking"
-            ? `<a href="${buildBookingUrl()}" target="_blank" rel="noopener noreferrer" class="btn btn--terracota">${t("room_check_btn")}</a>`
-            : `<a href="#ubicacion" class="btn btn--line-light">${t("room_ask_btn")}</a>`
-          }
-        </div>
-      </article>
-    `).join("");
-  }
-
-  /* ------------------------------------------------------------------------
-     9 Real Attractions Interactive Explorer
-     ------------------------------------------------------------------------ */
+  /* 9 Real Attractions Explorer */
   function renderAttractions() {
     const listEl = document.getElementById("env-list");
-    const featEl = document.getElementById("env-feature");
-    if (!listEl || !featEl) return;
+    const stageEl = document.getElementById("env-stage");
+    if (!listEl || !stageEl) return;
 
     listEl.innerHTML = DATA.attractions.map((a) => `
       <button
@@ -200,32 +318,27 @@
         data-attr-id="${a.id}"
         aria-pressed="${a.id === state.activeAttrId}"
       >
-        <span class="env-btn-title">${a.title}</span>
+        <span class="env-btn-name">${a.title}</span>
         <span class="env-btn-dist">${a.dist}</span>
       </button>
     `).join("");
 
     const active = DATA.attractions.find((a) => a.id === state.activeAttrId) || DATA.attractions[0];
-    featEl.innerHTML = `
-      <div class="env-feature-img">
-        <img src="${active.image}" alt="${active.title} — Costa Blanca" loading="lazy">
-      </div>
-      <div class="env-feature-dist">${active.dist}</div>
-      <h3 class="env-feature-title">${active.title}</h3>
-      <p class="env-feature-desc">${active.desc}</p>
+    stageEl.innerHTML = `
+      <img src="${active.image}" alt="${active.title} — Costa Blanca" loading="lazy">
+      <div class="env-stage-dist">${active.dist}</div>
+      <h3 class="env-stage-title">${active.title}</h3>
+      <p class="env-stage-desc">${active.desc}</p>
     `;
   }
 
-  /* ------------------------------------------------------------------------
-     Real Photo Archive + Lightbox
-     ------------------------------------------------------------------------ */
+  /* Real Photo Archive + Lightbox */
   function renderGallery() {
     const grid = document.getElementById("archive-grid");
     if (!grid) return;
     const list = DATA.gallery.filter((g) =>
       state.galleryFilter === "all" ? true : g.category === state.galleryFilter
     );
-
     grid.innerHTML = list.map((item, idx) => `
       <button
         type="button"
@@ -234,7 +347,7 @@
         aria-label="Ampliar: ${item.caption}"
       >
         <img src="${item.image}" alt="${item.caption}" loading="lazy">
-        <span class="archive-caption">${item.caption}</span>
+        <span class="archive-cap">${item.caption}</span>
       </button>
     `).join("");
   }
@@ -263,11 +376,7 @@
     document.body.style.overflow = "";
   }
 
-  /* ------------------------------------------------------------------------
-     Events
-     ------------------------------------------------------------------------ */
   function bindEvents() {
-    // Mobile drawer
     const drawer = document.getElementById("mobile-drawer");
     document.getElementById("mobile-open").addEventListener("click", () => {
       drawer.classList.add("is-open");
@@ -284,13 +393,11 @@
       })
     );
 
-    // Booking form submits to real TheBookingButton engine
     document.getElementById("hero-booking-form").addEventListener("submit", (e) => {
       e.preventDefault();
       window.open(buildBookingUrl(), "_blank", "noopener,noreferrer");
     });
 
-    // Video modal trigger
     document.querySelectorAll("[data-open-video]").forEach((btn) => {
       btn.addEventListener("click", () => {
         document.getElementById("video-iframe").src = DATA.youtubeEmbed;
@@ -299,10 +406,15 @@
       });
     });
 
-    // Delegated clicks
     document.addEventListener("click", (e) => {
       const langBtn = e.target.closest(".lang-btn");
       if (langBtn) applyLang(langBtn.dataset.lang);
+
+      const srvCol = e.target.closest("[data-service-key]");
+      if (srvCol) {
+        state.activeService = srvCol.dataset.serviceKey;
+        renderServiceDetail();
+      }
 
       const colTab = e.target.closest("[data-collection]");
       if (colTab) {
@@ -310,28 +422,48 @@
         document.querySelectorAll("[data-collection]").forEach((b) =>
           b.classList.toggle("is-active", b === colTab)
         );
-        renderFolio();
+        renderAccordion();
       }
 
-      const aptRow = e.target.closest("[data-apt-id]");
-      if (aptRow) {
-        state.activeAptId = aptRow.dataset.aptId;
-        state.activePhotoIdx = 0;
-        renderFolio();
+      // Smooth in-place accordion toggle (no DOM rebuild so CSS transition glides!)
+      const toggleApt = e.target.closest("[data-toggle-apt]");
+      if (toggleApt) {
+        const id = toggleApt.dataset.toggleApt;
+        const willOpen = state.openAptId !== id;
+        state.openAptId = willOpen ? id : null;
+        document.querySelectorAll(".apt-item").forEach((card) => {
+          const open = card.dataset.aptCard === state.openAptId;
+          card.classList.toggle("is-open", open);
+          const btn = card.querySelector("[data-toggle-apt]");
+          if (btn) btn.setAttribute("aria-expanded", String(open));
+        });
       }
 
-      const thumbBtn = e.target.closest("[data-thumb-idx]");
+      // Thumbnail switch inside an expanded accordion without closing it
+      const thumbBtn = e.target.closest("[data-apt-thumb]");
       if (thumbBtn) {
-        state.activePhotoIdx = parseInt(thumbBtn.dataset.thumbIdx, 10);
-        renderFolio();
+        const id = thumbBtn.dataset.aptThumb;
+        const idx = parseInt(thumbBtn.dataset.thumbIdx, 10);
+        state.aptPhotoIdx[id] = idx;
+        const apt = DATA.apartments.find((a) => a.id === id);
+        const card = document.querySelector(`[data-apt-card="${id}"]`);
+        if (apt && card) {
+          const mainImg = card.querySelector(".stage-photo img");
+          if (mainImg) mainImg.src = apt.photos[idx];
+          card.querySelectorAll("[data-apt-thumb]").forEach((b, i) =>
+            b.classList.toggle("is-active", i === idx)
+          );
+        }
       }
 
-      if (e.target.closest("[data-open-apt-lightbox]")) {
-        const apt = DATA.apartments.find((a) => a.id === state.activeAptId);
+      const lbApt = e.target.closest("[data-open-apt-lightbox]");
+      if (lbApt) {
+        const id = lbApt.dataset.openAptLightbox;
+        const apt = DATA.apartments.find((a) => a.id === id);
         if (apt) {
           openLightbox(
             apt.photos.map((src, i) => ({ image: src, caption: `${apt.name[state.lang]} (${i + 1}/${apt.photos.length})` })),
-            state.activePhotoIdx
+            state.aptPhotoIdx[id] || 0
           );
         }
       }
@@ -364,7 +496,6 @@
       }
     });
 
-    // Lightbox prev/next
     document.getElementById("lb-prev").addEventListener("click", () => {
       state.lightboxIdx = (state.lightboxIdx - 1 + state.lightboxList.length) % state.lightboxList.length;
       updateLightbox();
@@ -382,7 +513,6 @@
       }
     });
 
-    // Contact form
     document.getElementById("contact-form").addEventListener("submit", (e) => {
       e.preventDefault();
       const name = document.getElementById("c-name");
@@ -402,6 +532,9 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     initDates();
+    initHeroReel();
+    initScrollReveals();
+    renderServiceDetail();
     renderAttractions();
     renderGallery();
     applyLang("es");
