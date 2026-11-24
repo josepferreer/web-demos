@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería · Bellavista Residencial</title>
+<meta name="description" content="Fotos del complejo, los apartamentos y los alrededores de Bellavista Residencial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Instrument+Serif&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="pagina-hero" style="--foto:url(assets/img/gal-1.jpg)">
+  <input type="checkbox" id="burger" aria-label="Abrir menú">
+  <nav class="nav" aria-label="Principal">
+    <a class="marca" href="index.html">Bellavista</a>
+    <div class="nav-der">
+      <a class="boton" href="reservar.html">Reservar</a>
+      <label class="burger menu-txt" for="burger" aria-label="Abrir menú"><span>Menú</span><b><i></i><i></i></b></label>
+    </div>
+    <div class="nav-movil">
+      <label for="burger">Cerrar</label>
+      <a href="apartamentos.html">Apartamentos</a>
+      <a href="instalaciones.html">Servicios</a>
+      <a href="alrededores.html">Alrededores</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+      <div class="idiomas menu-txt"><a class="on" href="#">ES</a><a href="#">EN</a><a href="#">FR</a><a href="#">DE</a></div>
+    </div>
+  </nav>
+  <div class="pagina-titulo">
+    <h1>Galería</h1>
+    <p class="firma">Un vistazo antes de llegar</p>
+  </div>
+</header>
+
+<main>
+
+<section class="seccion">
+  <div class="caja">
+    <div class="filtros" role="group" aria-label="Filtrar fotos">
+      <button type="button" class="on" data-f="todas">Todas</button>
+      <button type="button" data-f="complejo">Complejo</button>
+      <button type="button" data-f="apartamentos">Apartamentos</button>
+      <button type="button" data-f="entorno">Alrededores</button>
+    </div>
+
+    <div class="galeria-grid">
+      <div class="foto a g2" data-c="complejo"><img src="assets/img/complejo-fachada.jpg" alt="Bloques blancos del complejo entre jardines" loading="lazy"></div>
+      <div class="foto b" data-c="complejo"><img src="assets/img/inst-piscina.jpg" alt="Piscina con tumbonas y sombrillas" loading="lazy"></div>
+      <div class="foto c" data-c="apartamentos"><img src="assets/img/apto-5.jpg" alt="Salón con vistas panorámicas" loading="lazy"></div>
+      <div class="foto d" data-c="entorno"><img src="assets/img/entorno-playa.jpg" alt="Cala de aguas turquesas" loading="lazy"></div>
+      <div class="foto a" data-c="complejo"><img src="assets/img/gal-1.jpg" alt="Piscina por la noche" loading="lazy"></div>
+      <div class="foto b" data-c="apartamentos"><img src="assets/img/ficha-terraza.jpg" alt="Terraza con mesa y vistas al mar" loading="lazy"></div>
+      <div class="foto c g2" data-c="complejo"><img src="assets/img/gal-3.jpg" alt="Terraza de tumbonas junto a la piscina" loading="lazy"></div>
+      <div class="foto d" data-c="apartamentos"><img src="assets/img/apto-1.jpg" alt="Terraza con vistas al mar" loading="lazy"></div>
+      <div class="foto a" data-c="entorno"><img src="assets/img/entorno-marjal.jpg" alt="Arrozales de la Marjal Pego-Oliva" loading="lazy"></div>
+      <div class="foto b" data-c="complejo"><img src="assets/img/gal-6.jpg" alt="Comedor del restaurante" loading="lazy"></div>
+      <div class="foto c" data-c="apartamentos"><img src="assets/img/ficha-salon.jpg" alt="Salón con grandes ventanales" loading="lazy"></div>
+      <div class="foto d" data-c="complejo"><img src="assets/img/servicios-terraza.jpg" alt="Terraza del restaurante" loading="lazy"></div>
+      <div class="foto a" data-c="apartamentos"><img src="assets/img/apto-4.jpg" alt="Salón comedor con terraza" loading="lazy"></div>
+      <div class="foto b g2" data-c="entorno"><img src="assets/img/entorno-senderos.jpg" alt="Camino con vistas sobre Dénia y el mar" loading="lazy"></div>
+      <div class="foto c" data-c="complejo"><img src="assets/img/gal-4.jpg" alt="Piscina exterior" loading="lazy"></div>
+      <div class="foto d" data-c="apartamentos"><img src="assets/img/apto-7.jpg" alt="Terraza del ático" loading="lazy"></div>
+      <div class="foto a" data-c="complejo"><img src="assets/img/inst-minigolf.jpg" alt="Minigolf del complejo" loading="lazy"></div>
+      <div class="foto b" data-c="apartamentos"><img src="assets/img/ficha-cocina.jpg" alt="Cocina equipada" loading="lazy"></div>
+      <div class="foto c" data-c="entorno"><img src="assets/img/entorno-aves.jpg" alt="Aves en los arrozales" loading="lazy"></div>
+      <div class="foto d" data-c="complejo"><img src="assets/img/gal-5.jpg" alt="Gimnasio" loading="lazy"></div>
+      <div class="foto a" data-c="apartamentos"><img src="assets/img/complejo-dormitorio.jpg" alt="Dormitorio con vistas" loading="lazy"></div>
+      <div class="foto b" data-c="complejo"><img src="assets/img/inst-parque.jpg" alt="Parque infantil" loading="lazy"></div>
+      <div class="foto c" data-c="apartamentos"><img src="assets/img/apto-8.jpg" alt="Salón amplio y luminoso" loading="lazy"></div>
+      <div class="foto d" data-c="complejo"><img src="assets/img/inst-sala.jpg" alt="Sala Los Arcos" loading="lazy"></div>
+      <div class="foto a" data-c="apartamentos"><img src="assets/img/apto-3.jpg" alt="Terraza con vistas a la Marjal" loading="lazy"></div>
+      <div class="foto b" data-c="complejo"><img src="assets/img/apto-6.jpg" alt="Jardín y piscina" loading="lazy"></div>
+      <div class="foto c" data-c="apartamentos"><img src="assets/img/ficha-bano.jpg" alt="Baño con ducha" loading="lazy"></div>
+      <div class="foto d" data-c="apartamentos"><img src="assets/img/apto-2.jpg" alt="Dormitorio doble" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="banda">
+  <div class="caja">
+    <h2 class="titulo">Te esperamos</h2>
+    <p class="firma">Con las fotos todo se ve más claro</p>
+    <a class="boton" href="reservar.html">Reservar</a>
+  </div>
+</section>
+
+</main>
+
+<footer id="contacto">
+  <div class="pie">
+    <div class="pie-sup">
+      <div class="pie-col">
+        <h4>Bellavista Residencial</h4>
+        <p>Calle las Rosas s/n<br>03780 Pego, Alicante</p>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Contacto</span>
+        <a href="tel:+34966400400">+34 966 400 400</a>
+        <a href="mailto:info@bellavistaresidential.com">info@bellavistaresidential.com</a>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Síguenos</span>
+        <a href="https://www.facebook.com/Bellavista-Residencial-376889849088722/">Facebook</a>
+        <a href="https://es.pinterest.com/bellavistamonte/bellavista-residential-costa-blanca/">Pinterest</a>
+        <a href="#">TripAdvisor</a>
+      </div>
+    </div>
+    <div class="pie-inf">
+      <span>© 2026 Hira Company SA</span>
+      <div><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var botones=document.querySelectorAll('.filtros button');
+  var fotos=document.querySelectorAll('.galeria-grid .foto');
+  botones.forEach(function(b){
+    b.addEventListener('click',function(){
+      botones.forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.f;
+      fotos.forEach(function(p){ p.hidden=(f!=='todas'&&p.dataset.c!==f); });
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservar · Bellavista Residencial</title>
+<meta name="description" content="Reserva directamente con Bellavista Residencial: online, por teléfono o por email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Instrument+Serif&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="pagina-hero" style="--foto:url(assets/img/ficha-terraza.jpg)">
+  <input type="checkbox" id="burger" aria-label="Abrir menú">
+  <nav class="nav" aria-label="Principal">
+    <a class="marca" href="index.html">Bellavista</a>
+    <div class="nav-der">
+      <a class="boton" href="reservar.html">Reservar</a>
+      <label class="burger menu-txt" for="burger" aria-label="Abrir menú"><span>Menú</span><b><i></i><i></i></b></label>
+    </div>
+    <div class="nav-movil">
+      <label for="burger">Cerrar</label>
+      <a href="apartamentos.html">Apartamentos</a>
+      <a href="instalaciones.html">Servicios</a>
+      <a href="alrededores.html">Alrededores</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+      <div class="idiomas menu-txt"><a class="on" href="#">ES</a><a href="#">EN</a><a href="#">FR</a><a href="#">DE</a></div>
+    </div>
+  </nav>
+  <div class="pagina-titulo">
+    <h1>Reservar</h1>
+    <p class="firma">Directamente con nosotros</p>
+  </div>
+</header>
+
+<main>
+
+<section class="seccion reservar-pagina" style="background:var(--tinta);color:var(--crema)">
+  <div class="caja">
+    <div class="cab centro">
+      <h2 class="titulo" style="color:var(--crema)">Elige tus fechas</h2>
+      <p class="firma" style="color:var(--lino)">Y cuántos vais</p>
+    </div>
+    <form class="reserva" action="#" aria-label="Buscar disponibilidad">
+      <div class="campo" data-campo="llegada">
+        <button type="button" class="campo-btn" aria-expanded="false"><span class="et">Llegada</span><span class="val vacio">Añadir fecha</span></button>
+        <input type="hidden" name="llegada">
+      </div>
+      <div class="campo" data-campo="salida">
+        <button type="button" class="campo-btn" aria-expanded="false"><span class="et">Salida</span><span class="val vacio">Añadir fecha</span></button>
+        <input type="hidden" name="salida">
+      </div>
+      <div class="campo" data-campo="huespedes">
+        <button type="button" class="campo-btn" aria-expanded="false"><span class="et">Huéspedes</span><span class="val">2 personas</span></button>
+        <input type="hidden" name="huespedes" value="2">
+        <div class="op" role="listbox" hidden></div>
+      </div>
+      <button class="boton" type="submit">Reservar</button>
+      <div class="cal" role="dialog" aria-label="Elegir fechas" hidden></div>
+    </form>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="caja">
+    <div class="cab">
+      <h2 class="titulo">Otras formas de reservar</h2>
+      <p class="firma">Si lo prefieres, hablamos</p>
+    </div>
+    <div class="contacto-datos">
+      <div>
+        <h3>Por teléfono</h3>
+        <p>Te atendemos en recepción para resolver dudas y cerrar la reserva.</p>
+        <a class="enlace" href="tel:+34966400400">+34 966 400 400</a>
+      </div>
+      <div>
+        <h3>Por email</h3>
+        <p>Cuéntanos fechas y número de personas y te respondemos.</p>
+        <a class="enlace" href="mailto:info@bellavistaresidential.com">info@bellavistaresidential.com</a>
+      </div>
+      <div>
+        <h3>En persona</h3>
+        <p>La recepción está en Calle las Rosas s/n, en Pego, en el toldo amarillo.</p>
+        <a class="enlace" href="contacto.html">Cómo llegar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion apartamentos">
+  <div class="caja">
+    <div class="cab">
+      <h2 class="titulo">Ofertas</h2>
+      <p class="firma">De temporada</p>
+    </div>
+    <div class="ofertas">
+      <article class="oferta">
+        <h3>Oferta de ejemplo</h3>
+        <p>Aquí irá cada oferta vigente, con su descuento, sus fechas y el código para usarla al reservar.</p>
+        <a class="enlace" href="#">Ver condiciones</a>
+      </article>
+      <article class="oferta">
+        <h3>Oferta de ejemplo</h3>
+        <p>Las ofertas actuales del blog son de 2017 y están caducadas, así que hay que pedir las vigentes al cliente.</p>
+        <a class="enlace" href="#">Ver condiciones</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="caja">
+    <div class="bloque">
+      <div class="texto">
+        <h2>Antes de reservar</h2>
+        <p class="firma">Lo que suelen preguntar</p>
+        <ul>
+          <li>Wifi gratuito en todos los apartamentos</li>
+          <li>Cunas bajo petición expresa</li>
+          <li>Mascotas bajo petición y según disponibilidad</li>
+          <li>Limpieza semanal y ropa de cama incluidas</li>
+          <li>Acceso a piscina interior, spa y gimnasio solo en apartamentos deluxe</li>
+          <li>Minigolf y ping-pong gratis para todos</li>
+        </ul>
+        <p class="nota">Faltan por confirmar con el cliente la hora de entrada y salida, el aparcamiento y las condiciones de cancelación.</p>
+      </div>
+      <div class="foto d"><img src="assets/img/ficha-cocina.jpg" alt="Cocina equipada de un apartamento" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contacto">
+  <div class="pie">
+    <div class="pie-sup">
+      <div class="pie-col">
+        <h4>Bellavista Residencial</h4>
+        <p>Calle las Rosas s/n<br>03780 Pego, Alicante</p>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Contacto</span>
+        <a href="tel:+34966400400">+34 966 400 400</a>
+        <a href="mailto:info@bellavistaresidential.com">info@bellavistaresidential.com</a>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Síguenos</span>
+        <a href="https://www.facebook.com/Bellavista-Residencial-376889849088722/">Facebook</a>
+        <a href="https://es.pinterest.com/bellavistamonte/bellavista-residential-costa-blanca/">Pinterest</a>
+        <a href="#">TripAdvisor</a>
+      </div>
+    </div>
+    <div class="pie-inf">
+      <span>© 2026 Hira Company SA</span>
+      <div><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/reserva.js"></script>
+</body>
+</html>

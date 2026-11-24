@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto · Bellavista Residencial</title>
+<meta name="description" content="Escríbenos o llámanos. Calle las Rosas s/n, Pego, Alicante. Cómo llegar desde Alicante y Valencia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Instrument+Serif&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="pagina-hero" style="--foto:url(assets/img/hero.jpg)">
+  <input type="checkbox" id="burger" aria-label="Abrir menú">
+  <nav class="nav" aria-label="Principal">
+    <a class="marca" href="index.html">Bellavista</a>
+    <div class="nav-der">
+      <a class="boton" href="reservar.html">Reservar</a>
+      <label class="burger menu-txt" for="burger" aria-label="Abrir menú"><span>Menú</span><b><i></i><i></i></b></label>
+    </div>
+    <div class="nav-movil">
+      <label for="burger">Cerrar</label>
+      <a href="apartamentos.html">Apartamentos</a>
+      <a href="instalaciones.html">Servicios</a>
+      <a href="alrededores.html">Alrededores</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+      <div class="idiomas menu-txt"><a class="on" href="#">ES</a><a href="#">EN</a><a href="#">FR</a><a href="#">DE</a></div>
+    </div>
+  </nav>
+  <div class="pagina-titulo">
+    <h1>Contacto</h1>
+    <p class="firma">Aquí estamos</p>
+  </div>
+</header>
+
+<main>
+
+<section class="seccion">
+  <div class="caja">
+    <div class="bloque">
+      <div class="texto">
+        <h2>Escríbenos</h2>
+        <p class="firma">Te respondemos enseguida</p>
+        <p>Cuéntanos qué fechas tienes en mente y cuántos sois, o pregúntanos lo que quieras sobre el complejo.</p>
+        <ul>
+          <li>Teléfono: <a class="enlace" href="tel:+34966400400">+34 966 400 400</a></li>
+          <li>Email: <a class="enlace" href="mailto:info@bellavistaresidential.com">info@bellavistaresidential.com</a></li>
+          <li>Calle las Rosas s/n, 03780 Pego, Alicante</li>
+        </ul>
+      </div>
+      <form class="formulario" aria-label="Contacto">
+        <div class="fila">
+          <label>Nombre<input type="text" name="nombre" required></label>
+          <label>Teléfono<input type="tel" name="telefono"></label>
+        </div>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Mensaje<textarea name="mensaje" required></textarea></label>
+        <label class="check"><input type="checkbox" required><span>He leído y acepto la política de privacidad.</span></label>
+        <button class="boton" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="seccion apartamentos" id="como-llegar">
+  <div class="caja">
+    <div class="llegar-grid">
+      <div class="foto d">Mapa: Calle las Rosas s/n, Pego (38.8427, -0.0592)</div>
+      <div class="trayectos">
+        <div class="cab">
+          <h2 class="titulo">Cómo llegar</h2>
+          <p class="firma">Con coche, una hora</p>
+        </div>
+        <div class="trayecto"><h3>Desde Alicante</h3><p>95 km, 1 h 10 min. AP-7 dirección Valencia, salida 62, N-332 y CV-700 hasta Pego. A unos 3 km, giro a la izquierda por la CV-728 hacia Ràfol d'Almunia. La recepción es el toldo amarillo.</p></div>
+        <div class="trayecto"><h3>Desde Valencia</h3><p>105 km, 1 h 15 min. AP-7 dirección Alicante, salida 62 y el mismo camino.</p></div>
+        <p class="nota">Hace falta coche para moverse por la zona. Falta por añadir cómo llegar en transporte público.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contacto">
+  <div class="pie">
+    <div class="pie-sup">
+      <div class="pie-col">
+        <h4>Bellavista Residencial</h4>
+        <p>Calle las Rosas s/n<br>03780 Pego, Alicante</p>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Contacto</span>
+        <a href="tel:+34966400400">+34 966 400 400</a>
+        <a href="mailto:info@bellavistaresidential.com">info@bellavistaresidential.com</a>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Síguenos</span>
+        <a href="https://www.facebook.com/Bellavista-Residencial-376889849088722/">Facebook</a>
+        <a href="https://es.pinterest.com/bellavistamonte/bellavista-residential-costa-blanca/">Pinterest</a>
+        <a href="#">TripAdvisor</a>
+      </div>
+    </div>
+    <div class="pie-inf">
+      <span>© 2026 Hira Company SA</span>
+      <div><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/formulario.js"></script>
+</body>
+</html>

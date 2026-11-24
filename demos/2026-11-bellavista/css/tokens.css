@@ -1,0 +1,13 @@
+:root{
+  --tinta:#1C1A17;
+  --pinar:#3B2A1E;
+  --terracota:#6B4A32;
+  --mar:#6B4A32;
+  --lino:#DAD4C4;
+  --crema:#EDE8DA;
+  --texto:#3a352e;
+  --serif:'Instrument Serif',Georgia,serif;
+  --script:'Birthstone',cursive;
+  --sans:'Jost',system-ui,sans-serif;
+  --lado:clamp(20px,5vw,72px);
+}

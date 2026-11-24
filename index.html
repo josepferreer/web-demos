@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Demos · Galería de diseños</title>
+<meta name="description" content="Galería con todas las demos web diseñadas por el equipo, para ver y sacar ideas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="galeria/styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="caja">
+    <h1>Web Demos</h1>
+    <div class="filtros">
+      <label>Autor
+        <select id="f-autor"><option value="">Todos</option></select>
+      </label>
+      <label>Sector
+        <select id="f-sector"><option value="">Todos</option></select>
+      </label>
+      <p id="cuenta" aria-live="polite"></p>
+    </div>
+  </div>
+</header>
+
+<main class="caja">
+  <ul class="rejilla" id="rejilla"></ul>
+  <p class="vacio" id="vacio" hidden>No hay demos con ese filtro.</p>
+</main>
+
+<script src="galeria/demos.js"></script>
+<script src="galeria/main.js"></script>
+</body>
+</html>

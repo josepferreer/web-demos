@@ -1,0 +1,45 @@
+:root{
+  --fondo:#0f0f10;
+  --superficie:#18181a;
+  --linea:#2a2a2d;
+  --tinta:#f2f0ec;
+  --suave:#9a978f;
+  --lado:clamp(20px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:16px;line-height:1.5;color:var(--tinta);background:var(--fondo);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{display:block;max-width:100%}
+
+.caja{width:100%;max-width:1480px;margin-inline:auto;padding-inline:var(--lado)}
+
+.cabecera{padding-block:clamp(40px,6vw,80px) 28px;border-bottom:1px solid var(--linea)}
+.cabecera .caja{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+h1{font-size:clamp(32px,4.5vw,56px);font-weight:600;letter-spacing:-.03em;line-height:1}
+
+.filtros{display:flex;flex-wrap:wrap;align-items:flex-end;gap:20px}
+.filtros label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--suave)}
+.filtros select{font:inherit;font-size:15px;color:var(--tinta);background:var(--superficie);border:1px solid var(--linea);border-radius:8px;padding:9px 34px 9px 12px;min-width:150px;cursor:pointer}
+.filtros select:focus-visible{outline:2px solid var(--tinta);outline-offset:2px}
+#cuenta{font-size:14px;color:var(--suave);padding-bottom:10px}
+
+main{padding-block:32px 80px}
+.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:36px 24px}
+
+.tarjeta{display:flex;flex-direction:column;gap:14px}
+.marco{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:10px;background:var(--superficie);border:1px solid var(--linea)}
+.marco img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tarjeta:hover .marco img,.tarjeta:focus-visible .marco img{transform:scale(1.04)}
+.tarjeta:focus-visible{outline:2px solid var(--tinta);outline-offset:6px;border-radius:10px}
+.sin-preview{position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--suave)}
+
+.info{display:flex;flex-direction:column;gap:4px}
+.info h2{font-size:18px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.info p{font-size:14px;color:var(--suave)}
+
+.vacio{padding-block:60px;color:var(--suave)}
+
+@media (prefers-reduced-motion:reduce){
+  .marco img{transition:none}
+}

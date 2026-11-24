@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bellavista Residencial · Monte Pego, Costa Blanca</title>
+<meta name="description" content="Apartamentos turísticos en lo alto de Monte Pego, a diez minutos de las playas de Dénia y Oliva.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Instrument+Serif&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="hero" id="inicio">
+  <input type="checkbox" id="burger" aria-label="Abrir menú">
+  <nav class="nav" aria-label="Principal">
+    <a class="marca" href="#inicio">Bellavista</a>
+    <div class="nav-der">
+      <a class="boton" href="reservar.html">Reservar</a>
+      <label class="burger menu-txt" for="burger" aria-label="Abrir menú"><span>Menú</span><b><i></i><i></i></b></label>
+    </div>
+    <div class="nav-movil">
+      <label for="burger">Cerrar</label>
+      <a href="apartamentos.html">Apartamentos</a>
+      <a href="instalaciones.html">Servicios</a>
+      <a href="alrededores.html">Alrededores</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+      <div class="idiomas menu-txt"><a class="on" href="#">ES</a><a href="#">EN</a><a href="#">FR</a><a href="#">DE</a></div>
+    </div>
+  </nav>
+
+  <div class="hero-centro">
+    <div class="hero-lado">Monte Pego<br>Costa Blanca<br>Alicante</div>
+    <div class="hero-titulo">
+      <h1>Bellavista<br>Residencial</h1>
+      <p class="firma">Tus vacaciones en lo alto de Pego</p>
+    </div>
+    <div class="hero-lado der">A 10 km<br>de las playas<br>de Dénia y Oliva</div>
+  </div>
+
+  <form class="reserva" action="#reservar" aria-label="Buscar disponibilidad">
+    <div class="campo" data-campo="llegada">
+      <button type="button" class="campo-btn" aria-expanded="false"><span class="et">Llegada</span><span class="val vacio">Añadir fecha</span></button>
+      <input type="hidden" name="llegada">
+    </div>
+    <div class="campo" data-campo="salida">
+      <button type="button" class="campo-btn" aria-expanded="false"><span class="et">Salida</span><span class="val vacio">Añadir fecha</span></button>
+      <input type="hidden" name="salida">
+    </div>
+    <div class="campo" data-campo="huespedes">
+      <button type="button" class="campo-btn" aria-expanded="false"><span class="et">Huéspedes</span><span class="val">2 personas</span></button>
+      <input type="hidden" name="huespedes" value="2">
+      <div class="op" role="listbox" hidden></div>
+    </div>
+    <button class="boton" type="submit">Reservar</button>
+    <div class="cal" role="dialog" aria-label="Elegir fechas" hidden></div>
+  </form>
+
+  <div class="cinta" aria-hidden="true">
+    <div>
+      <span>Bellavista Residencial</span><span>Monte Pego</span><span>Costa Blanca</span><span>Vistas al Mediterráneo</span><span>Marjal Pego-Oliva</span>
+      <span>Bellavista Residencial</span><span>Monte Pego</span><span>Costa Blanca</span><span>Vistas al Mediterráneo</span><span>Marjal Pego-Oliva</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="seccion" id="complejo">
+  <div class="caja">
+    <div class="cab">
+      <h2 class="titulo">El complejo</h2>
+      <p class="firma">Bellavista, en la cima de Monte Pego</p>
+    </div>
+    <div class="complejo-fotos">
+      <div class="col">
+        <div class="foto d"><img src="assets/img/complejo-dormitorio.jpg" alt="Dormitorio de un apartamento con vistas" loading="lazy"></div>
+        <p>Tres bloques de cuatro plantas con jardines privados y arquitectura tradicional de la zona. Desde cada terraza se ve el Mediterráneo y, al otro lado, la Marjal Pego-Oliva.</p>
+      </div>
+      <div class="col"><div class="foto a alta"><img src="assets/img/complejo-fachada.jpg" alt="Bloques blancos del complejo entre jardines" loading="lazy"></div></div>
+      <div class="col">
+        <div class="foto b"><img src="assets/img/complejo-salon.jpg" alt="Salón con salida a la terraza y vistas al mar" loading="lazy"></div>
+        <p>Apartamentos de uno a tres dormitorios, de 60 a más de 100 m², con cocina completa, wifi gratuito y terraza amueblada.</p>
+      </div>
+    </div>
+    <div class="complejo-pie"><a class="enlace" href="#">Conocer el complejo</a></div>
+
+    <div class="tres">
+      <article>
+        <h3>Apartamentos</h3>
+        <p>Ocho tipos, del estudio para dos al ático para seis. Los hay con vista mar y con aire acondicionado.</p>
+        <a class="enlace" href="apartamentos.html">Ver todos</a>
+      </article>
+      <article>
+        <h3>Instalaciones</h3>
+        <p>Restaurante, bar junto a la piscina, gimnasio, minigolf y parque infantil dentro del recinto.</p>
+        <a class="enlace" href="instalaciones.html">Ver servicios</a>
+      </article>
+      <article>
+        <h3>Alrededores</h3>
+        <p>Senderos, aves, playas y parques naturales. Dénia, Oliva y Benidorm quedan a un paseo en coche.</p>
+        <a class="enlace" href="alrededores.html">Ver actividades</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="seccion apartamentos" id="apartamentos">
+  <div class="caja">
+    <div class="cab">
+      <h2 class="titulo">Apartamentos</h2>
+      <p class="firma">Elige el tuyo</p>
+    </div>
+    <div class="rejilla">
+      <article class="apto">
+        <div class="foto a"><img src="assets/img/apto-1.jpg" alt="Terraza con vistas al mar" loading="lazy"></div>
+        <h3>1 dormitorio superior vista mar</h3>
+        <p>62 m² + 17 m² de terraza<br>Hasta 2 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+      <article class="apto">
+        <div class="foto b"><img src="assets/img/apto-2.jpg" alt="Dormitorio doble" loading="lazy"></div>
+        <h3>2 dormitorios estándar</h3>
+        <p>60 m² + 15 m² de terraza<br>Hasta 4 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+      <article class="apto">
+        <div class="foto c"><img src="assets/img/apto-3.jpg" alt="Terraza amueblada con vistas a la Marjal" loading="lazy"></div>
+        <h3>2 dormitorios vista mar</h3>
+        <p>60 m² + 15 m² de terraza<br>Hasta 4 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+      <article class="apto">
+        <div class="foto a"><img src="assets/img/apto-4.jpg" alt="Salón comedor con terraza" loading="lazy"></div>
+        <h3>2 dormitorios superior vista mar</h3>
+        <p>62 m² + 17 m² de terraza<br>Hasta 4 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+      <article class="apto">
+        <div class="foto b"><img src="assets/img/apto-5.jpg" alt="Salón con vistas panorámicas" loading="lazy"></div>
+        <h3>2 dormitorios deluxe vista mar</h3>
+        <p>97 m² + 23 m² de terraza<br>Hasta 4 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+      <article class="apto">
+        <div class="foto c"><img src="assets/img/apto-6.jpg" alt="Jardín y piscina del complejo" loading="lazy"></div>
+        <h3>3 dormitorios garden</h3>
+        <p>80 m² + 26 m² de terraza<br>Hasta 6 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+      <article class="apto">
+        <div class="foto a"><img src="assets/img/apto-7.jpg" alt="Terraza del ático con mesa para comer" loading="lazy"></div>
+        <h3>3 dormitorios ático vista mar</h3>
+        <p>102 m² + 25 m² de terraza<br>Hasta 6 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+      <article class="apto">
+        <div class="foto b"><img src="assets/img/apto-8.jpg" alt="Salón amplio y luminoso" loading="lazy"></div>
+        <h3>3 dormitorios deluxe vista mar</h3>
+        <p>117 m² + 46 m² de terraza<br>Hasta 6 personas</p>
+        <a class="enlace" href="apartamento.html">Ver apartamento</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="servicios">
+  <div class="caja">
+    <div class="servicios-grid">
+      <div class="lista-caja" style="display:flex;flex-direction:column;gap:40px">
+        <div class="cab">
+          <h2 class="titulo">Todo en el recinto</h2>
+          <p class="firma">Sin bajar de la montaña</p>
+        </div>
+        <ul class="lista">
+          <li><strong>Restaurante</strong><span>Asador y bar Bellavista</span></li>
+          <li><strong>Bar de piscina</strong><span>Junto a la piscina</span></li>
+          <li><strong>Gimnasio</strong><span>Para huéspedes</span></li>
+          <li><strong>Minigolf</strong><span>Gratis, con ping-pong</span></li>
+          <li><strong>Sala Los Arcos</strong><span>Reuniones y eventos</span></li>
+        </ul>
+        <a class="enlace" href="instalaciones.html">Ver todos los servicios</a>
+      </div>
+      <div class="foto c"><img src="assets/img/servicios-terraza.jpg" alt="Terraza del restaurante junto a la piscina" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion entorno" id="entorno">
+  <div class="caja">
+    <div class="cab">
+      <h2 class="titulo">Alrededores</h2>
+      <p class="firma">La Marjal a un lado, el mar al otro</p>
+    </div>
+    <div class="entorno-grid">
+      <article class="lugar">
+        <div class="foto a"><img src="assets/img/entorno-marjal.jpg" alt="Arrozales de la Marjal Pego-Oliva" loading="lazy"></div>
+        <h3>Marjal Pego-Oliva</h3>
+        <p>Humedal de 1.250 hectáreas, el parque natural más cercano. Paseos en barca y avistamiento de aves.</p>
+      </article>
+      <article class="lugar">
+        <div class="foto c"><img src="assets/img/entorno-playa.jpg" alt="Cala de aguas turquesas" loading="lazy"></div>
+        <h3>Playas</h3>
+        <p>Dénia con más de 18 km de arena, Oliva y la cala de La Granadella en Jávea.</p>
+      </article>
+      <article class="lugar">
+        <div class="foto b"><img src="assets/img/entorno-senderos.jpg" alt="Camino con vistas sobre Dénia y el mar" loading="lazy"></div>
+        <h3>Senderismo y bici</h3>
+        <p>Cientos de kilómetros de senderos, el Montgó, barrancos y rutas en bicicleta con alquiler en recepción.</p>
+      </article>
+    </div>
+    <a class="enlace" href="alrededores.html">Ver todas las actividades</a>
+  </div>
+</section>
+
+<section class="seccion" id="galeria">
+  <div class="caja">
+    <div class="cab centro">
+      <h2 class="titulo">Galería</h2>
+      <p class="firma">Un vistazo antes de llegar</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px">
+      <div class="foto a" style="grid-row:span 2"><img src="assets/img/gal-1.jpg" alt="" loading="lazy"></div>
+      <div class="foto b"><img src="assets/img/gal-2.jpg" alt="" loading="lazy"></div>
+      <div class="foto d" style="grid-column:span 2"><img src="assets/img/gal-3.jpg" alt="" loading="lazy"></div>
+      <div class="foto c"><img src="assets/img/gal-4.jpg" alt="" loading="lazy"></div>
+      <div class="foto a"><img src="assets/img/gal-5.jpg" alt="" loading="lazy"></div>
+      <div class="foto b" style="grid-column:span 2"><img src="assets/img/gal-6.jpg" alt="" loading="lazy"></div>
+    </div>
+    <div class="complejo-pie" style="justify-content:center"><a class="enlace" href="galeria.html">Ver la galería completa</a></div>
+  </div>
+</section>
+
+<section class="seccion reservar" id="reservar">
+  <div class="caja">
+    <div class="cab centro">
+      <h2 class="titulo">Cómo reservar</h2>
+      <p class="firma">Directamente con nosotros</p>
+    </div>
+    <div class="vias">
+      <article class="via">
+        <div><h3>Online</h3><p>Elige fechas y apartamento y reserva en unos minutos.</p></div>
+        <a class="enlace" href="reservar.html">Buscar disponibilidad</a>
+      </article>
+      <article class="via">
+        <div><h3>Por teléfono</h3><p>Te atendemos en recepción para resolver dudas y cerrar la reserva.</p></div>
+        <a class="enlace" href="tel:+34966400400">+34 966 400 400</a>
+      </article>
+      <article class="via">
+        <div><h3>Por email</h3><p>Cuéntanos fechas y número de personas y te respondemos.</p></div>
+        <a class="enlace" href="mailto:info@bellavistaresidential.com">Escribir</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="seccion opiniones" id="opiniones">
+  <div class="caja">
+    <div class="cab">
+      <h2 class="titulo">Lo que dicen los huéspedes</h2>
+      <p class="firma">Opiniones reales</p>
+    </div>
+    <div class="citas">
+      <blockquote class="cita"><q>Aquí irá una reseña real de Google, Booking o TripAdvisor.</q><span>Nombre, mes y año</span></blockquote>
+      <blockquote class="cita"><q>Aquí irá una reseña real de Google, Booking o TripAdvisor.</q><span>Nombre, mes y año</span></blockquote>
+      <blockquote class="cita"><q>Aquí irá una reseña real de Google, Booking o TripAdvisor.</q><span>Nombre, mes y año</span></blockquote>
+    </div>
+    <p class="nota">Maqueta: las citas son un marcador hasta tener las reseñas reales.</p>
+  </div>
+</section>
+
+<section class="seccion" id="como-llegar">
+  <div class="caja">
+    <div class="llegar-grid">
+      <div class="foto d">Mapa: Calle las Rosas s/n, Pego (38.8427, -0.0592)</div>
+      <div class="trayectos">
+        <div class="cab">
+          <h2 class="titulo">Cómo llegar</h2>
+          <p class="firma">Con coche, una hora</p>
+        </div>
+        <div class="trayecto"><h3>Desde Alicante</h3><p>95 km, 1 h 10 min. AP-7 dirección Valencia, salida 62, N-332 y CV-700 hasta Pego.</p></div>
+        <div class="trayecto"><h3>Desde Valencia</h3><p>105 km, 1 h 15 min. AP-7 dirección Alicante, salida 62 y el mismo camino.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion apartamentos" id="escribenos">
+  <div class="caja">
+    <div class="bloque">
+      <div class="texto">
+        <h2>Escríbenos</h2>
+        <p class="firma">Te respondemos enseguida</p>
+        <p>Cuéntanos qué fechas tienes en mente y cuántos sois. También puedes llamar al <a class="enlace" href="tel:+34966400400">+34 966 400 400</a></p>
+      </div>
+      <form class="formulario" aria-label="Contacto">
+        <div class="fila">
+          <label>Nombre<input type="text" name="nombre" required></label>
+          <label>Teléfono<input type="tel" name="telefono"></label>
+        </div>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Mensaje<textarea name="mensaje" required></textarea></label>
+        <label class="check"><input type="checkbox" required><span>He leído y acepto la política de privacidad.</span></label>
+        <button class="boton" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contacto">
+  <div class="pie">
+    <div class="pie-sup">
+      <div class="pie-col">
+        <h4>Bellavista Residencial</h4>
+        <p>Calle las Rosas s/n<br>03780 Pego, Alicante</p>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Contacto</span>
+        <a href="tel:+34966400400">+34 966 400 400</a>
+        <a href="mailto:info@bellavistaresidential.com">info@bellavistaresidential.com</a>
+      </div>
+      <div class="pie-col">
+        <span class="menu-txt">Síguenos</span>
+        <a href="https://www.facebook.com/Bellavista-Residencial-376889849088722/">Facebook</a>
+        <a href="https://es.pinterest.com/bellavistamonte/bellavista-residential-costa-blanca/">Pinterest</a>
+        <a href="#">TripAdvisor</a>
+      </div>
+    </div>
+    <div class="pie-inf">
+      <span>© 2026 Hira Company SA</span>
+      <div><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/reserva.js"></script>
+<script src="js/formulario.js"></script>
+</body>
+</html>
