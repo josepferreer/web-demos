@@ -9,6 +9,15 @@ window.DEMOS = [
         "preview":  true
     },
     {
+        "carpeta":  "2026-11-pcs-brink",
+        "titulo":  "PCS-Brink · Professional Cleaning Solutions",
+        "autor":  "Josep",
+        "fecha":  "2026-11",
+        "sector":  "Limpieza",
+        "descripcion":  "Web nueva para una empresa de limpieza profesional de Pego: modo noche, tinta y amarillo sol, logo «BRINK» en bloque y tarifas claras.",
+        "preview":  true
+    },
+    {
         "carpeta":  "2026-11-hotel-bellavista-2",
         "titulo":  "Bellavista Residencial 2.0",
         "autor":  "Pau",
