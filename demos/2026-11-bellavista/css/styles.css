@@ -17,10 +17,11 @@ ul{list-style:none}
 /* estructura */
 .seccion{display:grid;justify-items:center;padding:clamp(72px,10vw,140px) var(--lado)}
 .caja{width:100%;max-width:1240px;display:flex;flex-direction:column;gap:clamp(40px,6vw,72px)}
-.cab{display:flex;flex-direction:column;gap:8px}
+.cab{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px clamp(16px,2.5vw,32px)}
+.cab .firma{text-align:left;line-height:.78}
 .cab .titulo{font-size:clamp(44px,6.5vw,88px)}
 .cab .firma{font-size:clamp(34px,4vw,50px)}
-.cab.centro{align-items:center;text-align:center}
+.cab.centro{justify-content:center;text-align:center}
 
 /* marcadores de foto */
 .foto{position:relative;display:flex;align-items:flex-end;padding:14px 16px;overflow:hidden;color:rgba(237,230,214,.85);font-size:12px;letter-spacing:.08em}
@@ -106,13 +107,11 @@ ul{list-style:none}
 @keyframes sube{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 /* el complejo */
-.complejo-fotos{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:20px;align-items:start}
+.complejo-fotos{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:20px;align-items:stretch}
 .complejo-fotos .col{display:flex;flex-direction:column;gap:20px}
-.complejo-fotos .foto{min-height:240px}
+.complejo-fotos .foto{flex:1;min-height:240px}
 .complejo-fotos .alta{min-height:480px}
 .complejo-fotos p{font-size:15px}
-.complejo-fotos .col:first-child{padding-top:0}
-.complejo-fotos .col:last-child{padding-top:80px}
 .complejo-pie{display:flex;justify-content:flex-end}
 
 /* tres columnas */
@@ -204,7 +203,7 @@ footer{background:var(--tinta);color:var(--crema);padding:72px var(--lado) 32px;
   .reserva{grid-template-columns:1fr 1fr}
   .reserva .boton{grid-column:1/-1;padding-block:18px}
   .complejo-fotos{grid-template-columns:1fr 1fr}
-  .complejo-fotos .col:last-child{padding-top:0;grid-column:1/-1;flex-direction:row}
+  .complejo-fotos .col:last-child{grid-column:1/-1;flex-direction:row-reverse}
   .complejo-fotos .col:last-child>*{flex:1}
   .rejilla{grid-template-columns:repeat(2,1fr)}
   .servicios-grid,.llegar-grid{grid-template-columns:1fr}
